@@ -1,0 +1,522 @@
+Here is a complete, single-file HTML document that creates a personal brand website for "swole_takumi19," reflecting the aesthetic and details from your image.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>swole_takumi19 · defining the bright side</title>
+  <!-- Google Fonts + simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0b0c10;  /* deep grounding dark */
+      font-family: 'Inter', sans-serif;
+      color: #eef2ff;
+      line-height: 1.4;
+    }
+
+    /* subtle grain texture overlay (optional) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255,255,240,0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* header: profile & stats */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,240,0.15);
+      padding-bottom: 2rem;
+    }
+
+    .avatar-area {
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #2e3a4e, #1a1f2c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,215,130,0.3);
+      transition: all 0.2s ease;
+    }
+
+    .avatar span {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(120deg, #F9E0A0, #E0C87C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .identity {
+      flex: 1;
+    }
+
+    .display-name {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #d9d2b0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+    }
+
+    .username {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #b9c8e9;
+      background: rgba(255,245,200,0.08);
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      margin-top: 6px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #FFE6A3;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+    }
+
+    /* bio & mantra card */
+    .bio-card {
+      background: rgba(20, 24, 32, 0.7);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(255,215,130,0.2);
+      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.4);
+    }
+
+    .bio-text {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+      color: #f3f0e6;
+    }
+
+    .bio-tagline {
+      font-size: 0.9rem;
+      color: #cbd5e6;
+      border-left: 3px solid #E0C87C;
+      padding-left: 1rem;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .code-highlight {
+      font-family: monospace;
+      background: #00000044;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #FFE5A3;
+    }
+
+    /* mantra section / "I tried so hard" repetition */
+    .mantra-section {
+      margin: 2.5rem 0 2rem;
+      text-align: center;
+    }
+
+    .mantra-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .mantra-word {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      background: rgba(255,245,200,0.05);
+      padding: 0.4rem 1rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      border: 0.5px solid rgba(224,200,124,0.3);
+      transition: all 0.2s;
+      color: #F3E7C0;
+    }
+
+    .mantra-word:hover {
+      background: rgba(224,200,124,0.15);
+      transform: scale(1.02);
+      border-color: #e0c87c;
+    }
+
+    .mantra-caption {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #a6b3cf;
+      margin-bottom: 0.75rem;
+    }
+
+    /* pillars: denying self, embracing purpose, walking with christ */
+    .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+      justify-content: center;
+    }
+
+    .pillar-card {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 1.5rem;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      border: 1px solid rgba(224,200,124,0.25);
+      transition: 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .pillar-card:hover {
+      border-color: #E0C87C;
+      background: rgba(30,34,44,0.8);
+    }
+
+    .pillar-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .pillar-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.2px;
+      margin-bottom: 0.5rem;
+      color: #FFE3A0;
+    }
+
+    .pillar-desc {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    /* daily walk with christ quote */
+    .daily-walk {
+      background: linear-gradient(115deg, #10141e 0%, #191e2a 100%);
+      border-radius: 1.75rem;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      border: 1px solid rgba(224,200,124,0.4);
+    }
+
+    .daily-walk p {
+      font-size: 1.1rem;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #f2e9d0;
+    }
+
+    .daily-walk .scripture {
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+      color: #B9C5DC;
+      font-family: monospace;
+    }
+
+    /* post / community vibe: last part "I tried so hard" repeated block */
+    .effort-block {
+      margin: 2rem 0 2.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .effort-line {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #ded6b5;
+      margin: 0.4rem 0;
+      letter-spacing: 0.3px;
+    }
+
+    .effort-line strong {
+      font-weight: 800;
+      color: #FFE2A4;
+    }
+
+    /* links / code footer */
+    .link-footer {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      border-top: 1px solid rgba(255,235,170,0.2);
+      padding-top: 2rem;
+    }
+
+    .code-badge {
+      background: #1e2433;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #e0c87c55;
+    }
+
+    .btn-follow {
+      background: rgba(224,200,124,0.12);
+      border: 1px solid #E0C87C;
+      color: #ffefc0;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-follow:hover {
+      background: #E0C87C;
+      color: #0a0e14;
+      border-color: #fff2cf;
+      box-shadow: 0 5px 12px rgba(224,200,124,0.3);
+    }
+
+    /* mini_takumi badge */
+    .mini-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #00000055;
+      padding: 0.2rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 680px) {
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .display-name {
+        font-size: 1.8rem;
+      }
+      .pillars {
+        flex-direction: column;
+      }
+      .bio-text {
+        font-size: 1rem;
+      }
+    }
+
+    /* custom scroll */
+    ::selection {
+      background: #E0C87C;
+      color: #0a0c15;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- profile header: exactly as extracted -->
+  <div class="profile-header">
+    <div class="avatar-area">
+      <div class="avatar">
+        <span>崇</span>
+      </div>
+    </div>
+    <div class="identity">
+      <div class="display-name">swole_takumi19</div>
+      <div class="username">@breathedivinity · code: takumi</div>
+      <div class="stats">
+        <div class="stat-item"><span class="stat-number">235</span><span class="stat-label">posts</span></div>
+        <div class="stat-item"><span class="stat-number">142K</span><span class="stat-label">followers</span></div>
+        <div class="stat-item"><span class="stat-number">295</span><span class="stat-label">following</span></div>
+      </div>
+      <div class="mini-badge">
+        ❤️ mini_takumi&lt;3
+      </div>
+    </div>
+  </div>
+
+  <!-- bio & purpose -->
+  <div class="bio-card">
+    <div class="bio-text">
+      defining the bright side ✦ denying self, embracing purpose, walking with Christ daily.
+    </div>
+    <div class="bio-tagline">
+      🌿 “I am the vine; you are the branches. Apart from me you can do nothing.” — John 15:5
+    </div>
+    <div class="bio-tagline" style="margin-top: 0.5rem;">
+      ⚡ breathe divinity. every step is a surrender. code: <span class="code-highlight">takumi</span>
+    </div>
+  </div>
+
+  <!-- three core pillars (denying self, embracing purpose, walking with christ) -->
+  <div class="pillars">
+    <div class="pillar-card">
+      <div class="pillar-icon">🕊️</div>
+      <div class="pillar-title">denying self</div>
+      <div class="pillar-desc">die to ego, rise in grace. not my will, but Thine be done.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">✨</div>
+      <div class="pillar-title">embracing purpose</div>
+      <div class="pillar-desc">called for such a time as this. run with endurance.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">✝️</div>
+      <div class="pillar-title">walking with Christ daily</div>
+      <div class="pillar-desc">morning devotion, midnight prayer, kingdom mindset.</div>
+    </div>
+  </div>
+
+  <!-- I TRIED SO HARD REPETITION (from screenshot) -->
+  <div class="mantra-section">
+    <div class="mantra-caption">— relentless pursuit —</div>
+    <div class="mantra-grid">
+      <span class="mantra-word">I tried so hard</span>
+      <span class="mantra-word">I tried so hard</span>
+      <span class="mantra-word">I tried so hard</span>
+      <span class="mantra-word">I tried so hard</span>
+      <span class="mantra-word">I tried so hard</span>
+    </div>
+    <div style="font-size: 0.75rem; margin-top: 0.8rem; color:#9aaec5;">“i pressed toward the mark for the prize”</div>
+  </div>
+
+  <!-- daily devotion / Christ walk block -->
+  <div class="daily-walk">
+    <p>“denying self, embracing purpose, walking with Christ daily” is not a slogan — it's a rhythm. <br> Every morning, surrender. Every evening, gratitude. The bright side is not denial of pain but the presence of the Redeemer.</p>
+    <div class="scripture">📖 Colossians 3:1-3 · Set your minds on things above, not on earthly things.</div>
+  </div>
+
+  <!-- EXTRA: “I tried so hard” lines in a dedicated block (exactly as in the screenshot's post style) -->
+  <div class="effort-block">
+    <div class="effort-line"><strong>I tried so hard</strong> — to crucify the flesh</div>
+    <div class="effort-line"><strong>I tried so hard</strong> — to walk in humility</div>
+    <div class="effort-line"><strong>I tried so hard</strong> — to pray without ceasing</div>
+    <div class="effort-line"><strong>I tried so hard</strong> — to seek His face only</div>
+    <div class="effort-line"><strong>I tried so hard</strong> — and He was there every time.</div>
+  </div>
+
+  <!-- community & code: breathedivinity + mini_takumi vibe -->
+  <div class="link-footer">
+    <div class="code-badge">
+      🔑 breathedivinity | code: takumi 
+      <span style="font-size:0.8rem;">◈</span> 
+      <span style="font-family: monospace;">bd</span>
+    </div>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+      <button class="btn-follow" id="followBtn">✦ follow swole_takumi19 ✦</button>
+      <button class="btn-follow" id="messageBtn" style="background:transparent;">💬 message</button>
+    </div>
+    <div style="font-size:0.75rem; color:#7891b0; margin-top: 0.5rem;">
+      📍 walking in the light · mini_takumi<3 legacy | 1 Timothy 4:12
+    </div>
+  </div>
+</div>
+
+<!-- tiny js for interaction & console respect -->
+<script>
+  (function(){
+    // follow button alert with brand voice
+    const followBtn = document.getElementById('followBtn');
+    if(followBtn) {
+      followBtn.addEventListener('click', () => {
+        alert("✝️ thank you for joining the journey. denying self, embracing purpose — you're now walking with Christ daily. #breathedivinity | code: takumi");
+      });
+    }
+    const messageBtn = document.getElementById('messageBtn');
+    if(messageBtn) {
+      messageBtn.addEventListener('click', () => {
+        alert("📩 'I tried so hard...' — drop a testimony or prayer request. 'He who began a good work will carry it on to completion.' (Phil 1:6)");
+      });
+    }
+
+    // optional dynamic effect on mantra words: subtle console logging
+    const mantraWords = document.querySelectorAll('.mantra-word');
+    mantraWords.forEach(word => {
+      word.addEventListener('click', () => {
+        console.log(`✝️ ${word.innerText} — defining the bright side.`);
+      });
+    });
+
+    // add hover to effort lines? not necessary but a little easter egg
+    const effortLines = document.querySelectorAll('.effort-line');
+    effortLines.forEach(line => {
+      line.style.cursor = 'default';
+    });
+  })();
+</script>
+</body>
+</html>
+```
