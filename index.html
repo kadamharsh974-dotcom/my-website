@@ -1,0 +1,330 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eh Takumi | Defining The Bright Side</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --secondary-bg: #1f2833;
+            --text-color: #c5c6c7;
+            --accent-color: #66fcf1;
+            --bright-side: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(11, 12, 16, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--bright-side);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1920') no-repeat center center/cover;
+            margin-top: 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--bright-side);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--accent-color);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            padding: 12px 35px;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 10% 80px;
+            background-color: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--bright-side);
+            margin-bottom: 50px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1xl));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pillar-card {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .pillar-card i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .pillar-card h3 {
+            color: var(--bright-side);
+            margin-bottom: 10px;
+        }
+
+        /* Affiliate Section */
+        .affiliate {
+            padding: 80px 10%;
+            text-align: center;
+            background-color: var(--bg-color);
+        }
+
+        .promo-box {
+            background: linear-gradient(135deg, #1f2833 0%, #0b0c10 100%);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            display: inline-block;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .promo-box h3 {
+            color: var(--bright-side);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .code-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border-radius: 5px;
+            margin: 15px 0;
+            letter-spacing: 2px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 10%;
+            background-color: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--bg-color);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .pillars { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">TAKUMI<span>19</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Philosophy</a></li>
+            <li><a href="#apparel">Apparel</a></li>
+            <li><a href="#connect">Connect</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>EH TAKUMI</h1>
+        <p>Defining the bright side. Denying self, embracing purpose, walking with Christ daily.</p>
+        <a href="#about" class="cta-btn">Explore The Movement</a>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">The Philosophy</h2>
+        <div class="about-content">
+            <p>True strength is built from the inside out. Fitness is more than physical aesthetics—it's a spiritual discipline of daily dedication, self-denial, and aligning your actions with a higher purpose.</p>
+        </div>
+
+        <div class="pillars">
+            <div class="pillar-card">
+                <i class="fa-solid fa-cross"></i>
+                <h3>Faith First</h3>
+                <p>Walking with Christ daily and making Him the ultimate foundation of your mental and physical grind.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Denying Self</h3>
+                <p>Overcoming momentary comfort and excuses to embrace true long-term calling and discipline.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Bright Side</h3>
+                <p>Choosing optimism, high energy, and resilience in your training and your life, regardless of circumstances.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Support Section -->
+    <section class="affiliate" id="apparel">
+        <h2 class="section-title">Support The Mission</h2>
+        <div class="promo-box">
+            <h3>Breathe Divinity Gear</h3>
+            <p>Rep purpose-driven apparel designed to withstand intense grinds while carrying a higher message.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--accent-color);">Use Support Code At Checkout:</p>
+            <div class="code-badge">TAKUMI</div>
+            <br>
+            <a href="https://instagram.com/breathedivinity" target="_blank" class="cta-btn" style="margin-top: 15px; display: inline-block;">Shop Collection</a>
+        </div>
+    </section>
+
+    <!-- Connect / Footer Section -->
+    <section class="contact" id="connect">
+        <h2 class="section-title">Join the Community</h2>
+        <p>Follow along for daily motivation, lifting milestones, and transparent reflections on growth.</p>
+        <div class="social-icons">
+            <a href="https://instagram.com/swole_takumi19" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 swole_takumi19. All Rights Reserved. | Defining the Bright Side ⚔️</p>
+    </footer>
+
+</body>
+</html>
