@@ -1,0 +1,402 @@
+Here’s a complete, ready-to-use **HTML/CSS landing page** based on your screenshots and the improved structure. Just copy and paste this into a `.html` file.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>5+ Quality Dates in 6 Weeks | AJB Talks Cold Approach Coaching</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafc;
+      color: #111827;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* buttons & elements */
+    .btn-primary {
+      display: inline-block;
+      background: #1e3a5f;  /* deep trust blue */
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: #0f2b46;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #1e3a5f;
+      color: #1e3a5f;
+      font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #1e3a5f;
+      color: white;
+    }
+
+    .badge {
+      background: #eef2ff;
+      color: #1e3a5f;
+      font-weight: 600;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.85rem;
+    }
+
+    .guarantee-box {
+      background: #ecfdf5;
+      border-left: 6px solid #10b981;
+      padding: 1.5rem;
+      border-radius: 24px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .card-step {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      transition: 0.2s;
+      height: 100%;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .form-card {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 60px;
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-top: 0.25rem;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #1e3a5f;
+      box-shadow: 0 0 0 3px rgba(30,58,95,0.2);
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 1rem 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e3a5f, #2c5a7a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .container {
+        padding: 1.2rem;
+      }
+    }
+
+    .stat-rating {
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: #fef9e3;
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      margin-bottom: 1.8rem;
+    }
+
+    .footer {
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .col {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.05rem;
+    }
+    .checklist li::before {
+      content: "✓";
+      background: #1e3a5f;
+      color: white;
+      font-weight: bold;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .limited {
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+
+    /* cool micro interaction */
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- hero section -->
+  <div class="hero">
+    <div class="stat-rating">
+      ⭐ 10 out of 10 that’s exactly your type
+    </div>
+    <h1>Want to secure 5+ quality dates in 6 weeks or less — from cold approach?</h1>
+    <p style="font-size: 1.25rem; max-width: 700px; margin: 1rem auto; color: #2d3e50;">
+      Stop overthinking. Get a custom, step‑by‑step game plan from real coaches. <strong>Guaranteed results</strong> or we adjust your strategy for free.
+    </p>
+    <div style="margin: 2rem 0 1rem;">
+      <a href="#free-call-form" class="btn-primary" style="font-size: 1.2rem; padding: 1rem 2.5rem;">🎯 Request Your FREE Game Plan Call →</a>
+      <p style="margin-top: 1rem;"><span class="limited">🔥 Spots are limited — hurry!</span></p>
+    </div>
+  </div>
+
+  <!-- what we cover during call -->
+  <div style="background: white; border-radius: 2rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 8px 20px rgba(0,0,0,0.03);">
+    <div class="two-col">
+      <div class="col">
+        <span class="badge">DURING THIS FREE CALL, WE WILL:</span>
+        <ul class="checklist" style="margin-top: 1.5rem;">
+          <li>Clarify the current dating goals you want to achieve through cold approach</li>
+          <li>Review your personality type, conversation skills, and confidence to uncover what's possible for you in the next 30-60 days and beyond</li>
+          <li>Identify <strong>the #1 roadblock</strong> preventing you from making successful cold approaches and connecting with potential partners</li>
+          <li>Build a simple <strong>3‑step game plan</strong> to help you break through mental blocks & secure 5+ dates through cold approach in just 6 weeks or less...</li>
+        </ul>
+      </div>
+      <div class="col" style="text-align: center;">
+        <div style="background: #f0f4fa; border-radius: 28px; padding: 1.5rem;">
+          <span style="font-size: 3rem;">🎤</span>
+          <p style="font-weight: 700; margin-top: 0.5rem;">1-on-1 session</p>
+          <p style="font-size: 0.9rem;">With myself or my certified team — 100% free, no fluff.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- guarantee box -->
+  <div class="guarantee-box">
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <span style="font-size: 2rem;">✅</span>
+      <div><strong style="font-size: 1.2rem;">GUARANTEED: 5+ Dates in 6 weeks or less</strong><br>
+      Follow your custom plan and if you don't see results, we'll rework your strategy at no extra cost. That's our promise.</div>
+    </div>
+  </div>
+
+  <!-- 3-step simple game plan -->
+  <div>
+    <h2 class="section-title">Your 3‑Step Breakthrough Game Plan</h2>
+    <p style="margin-bottom: 1.5rem;">No fluff, only actionable tactics tailored to YOU.</p>
+    <div class="grid-3">
+      <div class="card-step">
+        <div style="font-size: 2rem; font-weight: 800; color: #1e3a5f;">01</div>
+        <h3 style="margin: 0.5rem 0;">Discover & Unblock</h3>
+        <p>We diagnose your exact roadblock — approach anxiety, conversation freeze, or inconsistency — and remove it with micro‑steps.</p>
+      </div>
+      <div class="card-step">
+        <div style="font-size: 2rem; font-weight: 800; color: #1e3a5f;">02</div>
+        <h3 style="margin: 0.5rem 0;">Cold Approach Blueprint</h3>
+        <p>Tailored openers, body language, and transition scripts that feel natural to <strong>your personality type</strong> (introvert or extrovert).</p>
+      </div>
+      <div class="card-step">
+        <div style="font-size: 2rem; font-weight: 800; color: #1e3a5f;">03</div>
+        <h3 style="margin: 0.5rem 0;">6‑Week Date Tracker</h3>
+        <p>A weekly action plan + accountability to secure real dates. We help you adjust in real time until you hit 5+ quality connections.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- form + urgency -->
+  <div id="free-call-form" style="scroll-margin-top: 80px;">
+    <div class="form-card">
+      <div style="text-align: center; margin-bottom: 1rem;">
+        <span class="badge" style="background: #e0f2fe;">✨ Limited availability ✨</span>
+        <h2 style="font-size: 1.9rem; margin-top: 0.5rem;">Request a FREE 1:1 Game Plan Call</h2>
+        <p>Spots fill quickly. Fill out the form, and we’ll reach out within 24h to schedule your session.</p>
+      </div>
+      <form action="#" method="post" id="callbackForm">
+        <label for="name">Full name *</label>
+        <input type="text" id="name" name="name" placeholder="e.g., Alex Johnson" required>
+
+        <label for="email">Email address *</label>
+        <input type="email" id="email" name="email" placeholder="hello@example.com" required>
+
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="For quick reminders">
+
+        <label for="time">Preferred time window *</label>
+        <select id="time" name="time" required>
+          <option value="">Select best time</option>
+          <option>Morning (9am–12pm EST)</option>
+          <option>Afternoon (12pm–4pm EST)</option>
+          <option>Evening (4pm–8pm EST)</option>
+          <option>Flexible — surprise me</option>
+        </select>
+
+        <div style="margin-top: 1.8rem; text-align: center;">
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; background: #1e3a5f;">🚀 Secure My Spot Now →</button>
+          <p style="font-size: 0.75rem; margin-top: 1rem; color: #4b5563;">No obligation, 100% free strategy session. Your info is safe.</p>
+        </div>
+      </form>
+      <div id="formSuccessMsg" style="display: none; margin-top: 1rem; background: #d1fae5; padding: 1rem; border-radius: 60px; text-align: center; font-weight: 500;"></div>
+    </div>
+  </div>
+
+  <!-- social proof / why us -->
+  <div style="margin: 3rem 0 1rem; text-align: center;">
+    <p class="badge">🔥 Already transformed</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 2rem 0;">
+      <div><span style="font-weight: 800; font-size: 1.8rem;">92%</span><br>report more confidence</div>
+      <div><span style="font-weight: 800; font-size: 1.8rem;">4.9/5</span><br>average rating (200+ reviews)</div>
+      <div><span style="font-weight: 800; font-size: 1.8rem;">0</span><br>risk, free consultation</div>
+    </div>
+  </div>
+
+  <!-- footer with copyright and note -->
+  <div class="footer">
+    <p>© 2026 AJB Talks. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem;">
+      <a href="#" style="color: #1e3a5f; text-decoration: none;">Privacy Policy</a> &nbsp;|&nbsp; 
+      <a href="#" style="color: #1e3a5f; text-decoration: none;">Terms of Use</a>
+    </p>
+    <p style="margin-top: 1rem; font-size: 0.7rem;">*Guarantee applies when you actively follow the personalized 3-step plan and complete weekly check-ins.</p>
+  </div>
+</div>
+
+<!-- simple js to handle form submission demo (non functional backend but shows confirmation) -->
+<script>
+  const form = document.getElementById('callbackForm');
+  const successDiv = document.getElementById('formSuccessMsg');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const timeSlot = document.getElementById('time')?.value;
+      
+      if (!name || !email || !timeSlot) {
+        alert('Please fill in your name, email, and preferred time slot to reserve your free call.');
+        return;
+      }
+      
+      // simulate success message
+      successDiv.style.display = 'block';
+      successDiv.innerHTML = `🎉 Thanks ${name}! Your free game plan request is received. We’ll email you within 24h to schedule the 1:1 session. Spots are limited — we’ve reserved yours for 48h.`;
+      form.reset();
+      
+      // optional: scroll to success message
+      successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // in a real environment: send data to server/webhook
+      console.log('Form submitted:', { name, email, timeSlot });
+    });
+  }
+</script>
+</body>
+</html>
+```
